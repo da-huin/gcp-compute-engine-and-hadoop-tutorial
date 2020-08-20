@@ -5,7 +5,7 @@
 
 </p>
 
-<h3 align="center">GCP Compute Engine Tutorial with Hadoop</h3>
+<h3 align="center">GCP Compute Engine and Hadoop Tutorial</h3>
 
 <div align="center">
 
@@ -59,21 +59,21 @@
 
     ![20200821_002513.png](./static/20200821_002513.png)
 
-1. Click `View network details button`.
+1. **Click `View network details button`.**
 
     ![20200821_002559.png](./static/20200821_002559.png)
 
-1. Click `Firewall` button in navigation and `Create Firewall Rule.`
+1. **Click `Firewall` button in navigation and `Create Firewall Rule.`**
 
     ![20200821_002625.png](./static/20200821_002625.png)
 
-1. Fill the `Name` form and Fill the `Target tags` as `jupyter`.
+1. **Fill the `Name` form and Fill the `Target tags` as `jupyter`.**
 
     * `jupyter` tag used on early created instance.
 
     ![20200821_002652.png](./static/20200821_002652.png)
 
-1. Fill that forms.
+1. **Fill that forms.**
 
     Why Source IP ranges is used 0.0.0.0/0 ?
 
@@ -85,31 +85,31 @@
 
     ![20200821_002728.png](./static/20200821_002728.png)
 
-1. Click `Compute Engine Button` in Navigation. 
+1. **Click `Compute Engine Button` in Navigation.**
 
     ![20200821_002756.png](./static/20200821_002756.png)
 
-1. Click `SSH` Button.
+1. **Click `SSH` Button.**
 
     ![20200821_002813.png](./static/20200821_002813.png)
 
-1. Instance will be opened. now we need to enter a few commands.
+1. **Instance will be opened. now we need to enter a few commands.**
 
     ![20200821_002833.png](./static/20200821_002833.png)
 
-1. Get `root` authority.
+1. **Get `root` authority.**
 
     ```
     sudo -s
     ```
 
-1. Install Docker
+1. **Install Docker**
 
     ```
     apt-get update -y && apt-get install docker.io -y
     ```
 
-1. Run `Hadoop` with docker.
+1. **Run `Hadoop` with docker.**
 
     ```bash
     docker run -p 9090:9090 --name=hbase-docker -d -v $pwd/data:/data dajobe/hbase
@@ -133,7 +133,7 @@
 
     * It is an OS container created in advance to easily install and use hadoop created by a user called dajobe.    
 
-1. Run `Jupyter notebook` with docker and copy `token`.
+1. **Run `Jupyter notebook` with docker and copy `token`.**
 
     ```bash
     docker run -v $pwd/workspace:/workspace --net host -it --rm -d --name lab dahuin000/lab && docker logs -f lab
@@ -155,26 +155,26 @@
     * It is an OS container created in advance to easily install and use jupyterlab notebook created by a user called dahuin000.    
 
 
-1. Remember your `Instance IP` in GCP console and combine `IP` and `token` as shown in the `URL` below.
+1. **Remember your `Instance IP` in GCP console and combine `IP` and `token` as shown in the `URL` below.**
 
     ![20200821_005838.png](./static/20200821_005838.png)
 
     http://`YOUR_IP_HERE`:8888/?token=`YOUR_TOKEN_HERE`
 
 
-1. Connect your jupyter notebook with combined URL and enter the workspace directory.
+1. **Connect your jupyter notebook with combined URL and enter the workspace directory.**
 
     ![20200821_010549.png](./static/20200821_010549.png)
 
-1. Create python file.
+1. **Create python file.**
 
     ![20200821_010603.png](./static/20200821_010603.png)
 
 
 
-1. Now we need to enter a few codes.
+1. **Now we need to enter a few codes.**
 
-1. Install `happybase`
+1. **Install `happybase`**
 
     ```
     !pip install happybase
@@ -182,7 +182,7 @@
 
     ![20200821_010736.png](./static/20200821_010736.png)
 
-1. Use the code below to prove that Hadoop is installed.
+1. **Use the code below to prove that Hadoop is installed.**
 
     ```python
     import happybase
@@ -233,12 +233,12 @@
         * We have completed the test on Hadoop integration!        
         ```
 
-1. Delete Your Instance for clean up at https://console.cloud.google.com/compute/instances
+1. **Delete Your Instance for clean up at https://console.cloud.google.com/compute/instances**
 
 
     ![20200821_011637.png](./static/20200821_011637.png)
 
-1. Delete your Network for clean up at https://console.cloud.google.com/networking/firewalls/list
+1. **Delete your Network for clean up at https://console.cloud.google.com/networking/firewalls/list**
 
     ![20200821_011823.png](./static/20200821_011823.png)
     
